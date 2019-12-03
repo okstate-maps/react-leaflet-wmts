@@ -16,6 +16,7 @@ export default L.TileLayer.extend({
   initialize: function(url, options) {
     // (String, Object)
     this._url = url;
+    this.fromArcGIS = url.search("arcgis") > -1 ? true : false;
     var wmtsParams = L.extend({}, this.defaultWmtsParams);
     var tileSize = options.tileSize || this.options.tileSize;
     if (options.detectRetina && L.Browser.retina) {
@@ -52,7 +53,7 @@ export default L.TileLayer.extend({
     var tilewidth = se.x - nw.x;
     //zoom = this._map.getZoom();
     var ident = this.matrixIds[zoom].identifier;
-    var tilematrix = this.wmtsParams.tilematrixSet + ':' + ident;
+    var tilematrix = this.fromArcGIS ? this.wmtsParams.tilematrixSet : this.wmtsParams.tilematrixSet + ':' + ident; // change for ArcGIS WMTS 
     var X0 = this.matrixIds[zoom].topLeftCorner.lng;
     var Y0 = this.matrixIds[zoom].topLeftCorner.lat;
     var tilecol = Math.floor((nw.x - X0) / tilewidth);
