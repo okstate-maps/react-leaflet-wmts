@@ -6,8 +6,8 @@
     "lib/*"
   ],
   "main": "lib/index.js",
-  "repository": "github.com:mpivaa/react-leaflet-wmts",
-  "author": "Marcelo Piva <m.pivaa@gmail.com>",
+  "repository": "github.com:okstate-maps/react-leaflet-wmts",
+  "author": "Kevin Dyke <krdyke@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "lodash": "^4.17.11"
